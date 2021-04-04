@@ -1,0 +1,21 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "15 12 */5 * *"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r7kamura/weneedfeed-action@v3
+        with:
+          base_url: https://supermomonga.github.io/weneedfeed-magcomi
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: output

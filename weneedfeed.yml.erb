@@ -1,0 +1,13 @@
+selectors: &selectors
+  item_selector: .series-episode-list-container
+  item_image_selector: .series-episode-list-thumb
+  item_link_selector: .
+  item_time_selector: .series-episode-list-date
+  item_title_selector: .series-episode-list-title
+pages:
+<% pages.each do |page| %>
+  - id: "<%= page.id %>"
+    title: "<%= page.title %>"
+    url: <%= page.url %>
+    <<: *selectors
+<% end %>
