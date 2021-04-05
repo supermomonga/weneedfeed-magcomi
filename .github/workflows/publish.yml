@@ -3,7 +3,7 @@ name: publish
 on:
   push:
     branches:
-      - master
+      - temp-ghaction
   schedule:
     - cron: "15 12 5,15,25 * *"
 
